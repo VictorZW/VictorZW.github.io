@@ -1,0 +1,109 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: victor的博客
+subtitle: 嗯！一个前端开发
+description: Write the Code. Change the world
+keywords:
+author: victor zhang
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: http://yoursite.com
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace:
+
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 10
+  order_by: -date
+
+# Category & Tag
+default_category: uncategorized
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 10
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: material-x
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type: git
+  repo: https://github.com/VictorZW/VictorZW.github.io.git
+  branch: master
+
+# 主题配置
+shortcut_icon: "https://xaoxuu.com/assets/img/favicon.ico"
+favicon: "https://xaoxuu.com/assets/img/favicon.ico"
+avatar: "https://tvax3.sinaimg.cn/crop.0.0.512.512.180/005ucBpUly8fxnw88dmxwj30e80e83yi.jpg"
+motto: "嗯！ 一个前端开发"
+
+nav_menu:
+  - name: 主页
+    icon: fas fa-home
+    url: /
+  - name: 归档
+    icon: fas fa-archive
+    url: archives/
+
+# 页脚社交信息
+social:
+  - icon: fas fa-envelope
+    url: zwzhangwei1@gmail.com
+  - icon: fab fa-github
+    url: https://github.com/VictorZW
+  - icon: fas fa-headphones-alt
+    url: https://music.163.com/#/playlist?id=2121709293&userid=1385662240
+
+# 百度统计key
+baidu_analytics_key: fc16c0706b8150d2d682c68cb739d87f
