@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>git tag</title>
+      <link href="/2019/04/28/git-tag/"/>
+      <url>/2019/04/28/git-tag/</url>
+      
+        <content type="html"><![CDATA[<ol><li>查看所有tag</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure><a id="more"></a><ol start="2"><li>删除本地tag</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.2.0</span><br></pre></td></tr></table></figure><ol start="3"><li>删除远程的tag</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete tag v1.2.0</span><br></pre></td></tr></table></figure><ol start="4"><li>新建tag</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.5.0 -m &apos;some msg&apos;</span><br></pre></td></tr></table></figure><ol start="5"><li>把本地tag推送到远程</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>git修改分支名字</title>
       <link href="/2018/12/26/git-change-name/"/>
       <url>/2018/12/26/git-change-name/</url>

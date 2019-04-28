@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Hello World | victor的博客</title>
+  <title>git tag | victor的博客</title>
   
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -114,14 +114,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-hello-world" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-git-tag" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">Hello World</h1>
+            <h1 class="title">git tag</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-12
+            2019-04-28
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -133,7 +133,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/编程开发/">编程开发</a>
+        <a class="categories" href="/categories/git/">git</a>
     </div>
 
 
@@ -142,29 +142,40 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+            <ol>
+<li>查看所有tag</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<ol start="2">
+<li>删除本地tag</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -d v1.2.0</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>删除远程的tag</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete tag v1.2.0</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>新建tag</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git tag -a v1.5.0 -m &apos;some msg&apos;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>把本地tag推送到远程</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push --tags</span><br></pre></td></tr></table></figure>
 
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-12T09:44:26+08:00" content="2018-12-12">
+            <time class="time" itemprop="dateUpdated" datetime="2019-04-28T09:29:24+08:00" content="2019-04-28">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-12
+                本文最后更新于：2019-04-28
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/blog/">blog</a>, <a class="tag" href="/tags/Hexo/">Hexo</a>
+                    <a class="tag" href="/tags/git/">git</a>
                 </div>
             
         </section>
@@ -172,34 +183,14 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
-                            <h4>
-                                <a href="/2018/12/12/svg-wave/" rel="prev" title="svg wave">
-                                  
-                                      svg wave
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/SVG/">SVG</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
                 
                     <section class="next">
                         <span class="art-item-right" aria-hidden="true">
                             <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/11/28/hexo-blog/" rel="prev" title="hexo和GitHub搭建个人博客">
+                                <a href="/2018/12/26/git-change-name/" rel="prev" title="git修改分支名字">
                                     
-                                        hexo和GitHub搭建个人博客
+                                        git修改分支名字
                                     
                                 </a>
                             </h4>
@@ -207,7 +198,7 @@
                                 
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/blog/">blog</a>, <a class="tag" href="/tags/Hexo/">Hexo</a>
+                                    <a class="tag" href="/tags/git/">git</a>
                                 </h6>
                             
                         </span>
@@ -234,11 +225,11 @@
         <h4><i class="fas fa-bookmark fa-fw" aria-hidden="true"></i>&nbsp;你可能感兴趣的文章</h4>
         <ul>
             
-                <li><a href="http://yoursite.com/2019/04/28/git-tag/">git tag</a></li>
-            
                 <li><a href="http://yoursite.com/2018/12/26/git-change-name/">git修改分支名字</a></li>
             
                 <li><a href="http://yoursite.com/2018/12/12/svg-wave/">svg wave</a></li>
+            
+                <li><a href="http://yoursite.com/2018/12/12/hello-world/">Hello World</a></li>
             
                 <li><a href="http://yoursite.com/2018/11/28/hexo-blog/">hexo和GitHub搭建个人博客</a></li>
             
@@ -264,7 +255,7 @@
 
 <script>
     window.subData = {
-        title: 'Hello World',
+        title: 'git tag',
         tools: true
     }
 </script>
@@ -304,16 +295,6 @@
     
     
         
-    <section class="m_widget toc-wrapper">
-        <header class="header pure">
-            <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;目录</div>
-            <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
-        </header>
-        <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
-        </div>
-    </section>
-
 
     
     
