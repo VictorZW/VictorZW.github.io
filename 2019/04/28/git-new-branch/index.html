@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>svg wave | victor的博客</title>
+  <title>git创建分支并提交到远程 | victor的博客</title>
   
   <meta name="HandheldFriendly" content="True">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -114,14 +114,14 @@
     <div class="l_body">
     <div class='container clearfix'>
         <div class='l_main'>
-            <article id="post-svg-wave" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
+            <article id="post-git-new-branch" class="post white-box article-type-post" itemscope="" itemprop="blogPost">
     <section class="meta">
         
-            <h1 class="title">svg wave</h1>
+            <h1 class="title">git创建分支并提交到远程</h1>
         
         <time class="time">
             <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            2018-12-12
+            2019-04-28
         </time>
         
           <div class="browse busuanzi"><i class="fas fa-eye fa-fw" aria-hidden="true"></i>
@@ -133,7 +133,7 @@
     
     <div class="cats">
         <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
-        <a class="categories" href="/categories/SVG/">SVG</a>
+        <a class="categories" href="/categories/git/">git</a>
     </div>
 
 
@@ -142,58 +142,30 @@
     <section class="article typo">
 
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="用SVG实现一个波浪动画"><a href="#用SVG实现一个波浪动画" class="headerlink" title="用SVG实现一个波浪动画"></a>用SVG实现一个波浪动画</h3><p>几个svg相关标签：</p>
-<ul>
-<li><p>path：定义形状的基础元素，其中d属性就是图形的路径</p>
-</li>
-<li><p>animateTransform：定义目标元素的变形属性，波浪的循环移动就是使用这个属性来实现</p>
-</li>
-<li><p>g：组合对象的容器</p>
-</li>
-</ul>
+            <p>1.从已有的分支创建新的分支(如从master分支)，创建一个dev分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev</span><br></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h3 id="绘制单个静态波浪"><a href="#绘制单个静态波浪" class="headerlink" title="绘制单个静态波浪"></a>绘制单个静态波浪</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;600&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;path d=&quot;</span><br><span class="line">            M 0 164 </span><br><span class="line">            Q 129 118, 274 164 </span><br><span class="line">            T 548 164 </span><br><span class="line">            V 0 </span><br><span class="line">            H 0&quot; fill=&quot;#ccc&quot;&gt;&lt;/path&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/wave.png" alt=""></p>
-<p>上面是写好的单个波浪，其中d属性绘制了形状，fill属性表示填充的颜色</p>
-<p>d属性中使用了以下几个命令：</p>
-<ul>
-<li><p>M：M x y表示移动到(x, y)点( svg中左上角是(0,0)点 )</p>
-</li>
-<li><p>Q：Q x1 y1, x2 y2表示绘制二次贝塞尔曲线，x1 y1为二次贝塞尔的控制点，x2 y2为终点</p>
-</li>
-<li><p>T：T x y表示生成上一个二次贝塞尔曲线的镜像，其终点坐标为(x,y)</p>
-</li>
-<li><p>V：V y表示从当前点(x0,y0)垂直移动到(x0, y)</p>
-</li>
-<li><p>H：H x表示从当前点(x0, y0)水平移动到(x, y0)</p>
-</li>
-</ul>
-<p>上面的代码解释为：首先从(0, 0)移动到(0, 164)处，再绘制起点为(0, 164)，终点为(274, 164)，控制点为(129 ,118)的二次贝塞尔曲线，接着绘制以(548, 164)为终点的镜像二次贝塞尔曲线，最后依次移动到(548, 0)，(0,0),从而形成闭合曲线</p>
-<h3 id="绘制运动效果"><a href="#绘制运动效果" class="headerlink" title="绘制运动效果"></a>绘制运动效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;600&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;g fill=&quot;rgba(93, 147, 252, 0.7)&quot;&gt;</span><br><span class="line">        &lt;path d=&quot;M 0 164 Q 129 118, 274 164 T 548 164 T 822 164 T 1096 164 T 1370 164 V 0 H 0&quot;&gt;&lt;/path&gt;</span><br><span class="line">        &lt;animateTransform attributeName=&quot;transform&quot; attributeType=&quot;XML&quot; type=&quot;translate&quot; from=&quot;0&quot; to=&quot;-548&quot; dur=&quot;2s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
-<p>增加了animateTransform后就动起来了，该标签的几个属性含义为：</p>
-<ul>
-<li>attributeName：需要运动的属性</li>
-<li>type：具体运动的类型</li>
-<li>from：运动初始值</li>
-<li>to：运动终点值</li>
-<li>dur：运动时间</li>
-<li>repeatCount：重复次数，indefinite为无限循环</li>
-</ul>
-<h3 id="多个组合"><a href="#多个组合" class="headerlink" title="多个组合"></a>多个组合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; width=&quot;300&quot; height=&quot;200&quot;&gt;</span><br><span class="line">    &lt;g fill=&quot;rgba(93, 147, 252, 0.7)&quot;&gt;</span><br><span class="line">        &lt;path d=&quot;M 0 164 Q 129 118, 274 164 T 548 164 T 822 164 T 1096 164 T 1370 164 V 0 H 0&quot;&gt;&lt;/path&gt;</span><br><span class="line">        &lt;animateTransform attributeName=&quot;transform&quot; attributeType=&quot;XML&quot; type=&quot;translate&quot; from=&quot;0&quot; to=&quot;-548&quot; dur=&quot;2s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">    &lt;g fill=&quot;rgba(93, 147, 252, 0.5)&quot;&gt;</span><br><span class="line">        &lt;path d=&quot;M 0 137 Q 102 60, 274 137 T 548 137 T 822 137 T 1096 137 T 1370 137 V 0 H 0&quot;&gt;&lt;/path&gt;</span><br><span class="line">        &lt;animateTransform attributeName=&quot;transform&quot; attributeType=&quot;XML&quot; type=&quot;translate&quot; from=&quot;0&quot; to=&quot;-548&quot; dur=&quot;3s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">    &lt;g fill=&quot;rgba(93, 147, 252, 0.3)&quot;&gt;</span><br><span class="line">        &lt;path d=&quot;M 0 120 Q 140 60, 274 120 T 548 120 T 822 120 T 1096 120 T 1370 120 V 0 H 0&quot;&gt;&lt;/path&gt;</span><br><span class="line">        &lt;animateTransform attributeName=&quot;transform&quot; attributeType=&quot;XML&quot; type=&quot;translate&quot; from=&quot;0&quot; to=&quot;-548&quot; dur=&quot;4s&quot; repeatCount=&quot;indefinite&quot;&gt;&lt;/animateTransform&gt;</span><br><span class="line">    &lt;/g&gt;</span><br><span class="line">&lt;/svg&gt;</span><br></pre></td></tr></table></figure>
-<p><img src="/images/wave2.png" alt=""></p>
+<p>相当于<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch dev</span><br><span class="line">git checkout dev</span><br></pre></td></tr></table></figure></p>
+<p>2.创建完可以查看一下，分支已经切换到dev<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">    * dev</span><br><span class="line">    master</span><br></pre></td></tr></table></figure></p>
+<p>3.提交该分支到远程仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin dev</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-测试从远程获取dev"><a href="#4-测试从远程获取dev" class="headerlink" title="4.测试从远程获取dev"></a>4.测试从远程获取dev</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin dev</span><br></pre></td></tr></table></figure>
+<h1 id="5-设置git-push-pull默认的提交获取分支-这样就很方便的使用git-push-提交信息或git-pull获取信息"><a href="#5-设置git-push-pull默认的提交获取分支-这样就很方便的使用git-push-提交信息或git-pull获取信息" class="headerlink" title="5.设置git push,pull默认的提交获取分支,这样就很方便的使用git push 提交信息或git pull获取信息"></a>5.设置git push,pull默认的提交获取分支,这样就很方便的使用git push 提交信息或git pull获取信息</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/dev</span><br></pre></td></tr></table></figure>
+<p>取消对master的跟踪<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --unset-upstream master</span><br></pre></td></tr></table></figure></p>
+<h1 id="6-现在随便修改一下工程文件的内容-然后git-commit-git-push-之后就可以直接提交到远程的dev分支中-而不会是master"><a href="#6-现在随便修改一下工程文件的内容-然后git-commit-git-push-之后就可以直接提交到远程的dev分支中-而不会是master" class="headerlink" title="6.现在随便修改一下工程文件的内容,然后git commit ,git push,之后就可以直接提交到远程的dev分支中,而不会是master"></a>6.现在随便修改一下工程文件的内容,然后git commit ,git push,之后就可以直接提交到远程的dev分支中,而不会是master</h1><blockquote>
+<p>Git鼓励大量使用分支：<br>查看分支：git branch<br>创建分支：git branch <name><br>切换分支：git checkout <name><br>创建+切换分支：git checkout -b <name><br>合并某分支到当前分支：git merge <name><br>删除分支：git branch -d <name></name></name></name></name></name></p>
+</blockquote>
 
         </div>
 
         <section class="meta">
-            <time class="time" itemprop="dateUpdated" datetime="2018-12-12T10:49:33+08:00" content="2018-12-12">
+            <time class="time" itemprop="dateUpdated" datetime="2019-04-28T09:37:00+08:00" content="2019-04-28">
                 <i class="fas fa-pen fa-fw" aria-hidden="true"></i>
-                本文最后更新于：2018-12-12
+                本文最后更新于：2019-04-28
             </time>
             
                 
                 <div class="tags">
                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                    <a class="tag" href="/tags/SVG/">SVG</a>
+                    <a class="tag" href="/tags/git/">git</a>
                 </div>
             
         </section>
@@ -201,14 +173,15 @@
         
             <div class="prev-next">
                 
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一篇</h6>
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
                             <h4>
-                                <a href="/2018/12/26/git-change-name/" rel="prev" title="git修改分支名字">
-                                  
-                                      git修改分支名字
-                                  
+                                <a href="/2019/04/28/git-tag/" rel="prev" title="git删除tag 新建tag">
+                                    
+                                        git删除tag 新建tag
+                                    
                                 </a>
                             </h4>
                             
@@ -216,27 +189,6 @@
                                 <h6 class="tags">
                                     <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
                                     <a class="tag" href="/tags/git/">git</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>下一篇&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                            <h4>
-                                <a href="/2018/12/12/hello-world/" rel="prev" title="Hello World">
-                                    
-                                        Hello World
-                                    
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <i class="fas fa-tags fa-fw" aria-hidden="true"></i>
-                                    <a class="tag" href="/tags/blog/">blog</a>, <a class="tag" href="/tags/Hexo/">Hexo</a>
                                 </h6>
                             
                         </span>
@@ -267,9 +219,9 @@
             
                 <li><a href="http://yoursite.com/2018/12/26/git-change-name/">git修改分支名字</a></li>
             
-                <li><a href="http://yoursite.com/2018/12/12/hello-world/">Hello World</a></li>
+                <li><a href="http://yoursite.com/2018/12/12/svg-wave/">svg wave</a></li>
             
-                <li><a href="http://yoursite.com/2018/11/28/hexo-blog/">hexo和GitHub搭建个人博客</a></li>
+                <li><a href="http://yoursite.com/2018/12/12/hello-world/">Hello World</a></li>
             
         </ul>
     </div>
@@ -293,7 +245,7 @@
 
 <script>
     window.subData = {
-        title: 'svg wave',
+        title: 'git创建分支并提交到远程',
         tools: true
     }
 </script>
@@ -337,7 +289,7 @@
             <div class="wrapper"><a class="s-toc rightBtn" title="固定到顶部" target="_blank" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
         </header>
         <div class="content pure">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用SVG实现一个波浪动画"><span class="toc-text">用SVG实现一个波浪动画</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制单个静态波浪"><span class="toc-text">绘制单个静态波浪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制运动效果"><span class="toc-text">绘制运动效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多个组合"><span class="toc-text">多个组合</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#4-测试从远程获取dev"><span class="toc-text">4.测试从远程获取dev</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-设置git-push-pull默认的提交获取分支-这样就很方便的使用git-push-提交信息或git-pull获取信息"><span class="toc-text">5.设置git push,pull默认的提交获取分支,这样就很方便的使用git push 提交信息或git pull获取信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-现在随便修改一下工程文件的内容-然后git-commit-git-push-之后就可以直接提交到远程的dev分支中-而不会是master"><span class="toc-text">6.现在随便修改一下工程文件的内容,然后git commit ,git push,之后就可以直接提交到远程的dev分支中,而不会是master</span></a></li></ol>
         </div>
     </section>
 
